@@ -1,50 +1,70 @@
 HR Candidate Screening Assistant
-A simple Streamlit web app that helps HR select candidates based on Python, data analysis, and teamwork skills by matching candidate CVs with job attributes using basic text similarity.
+A streamlined Streamlit web application designed to assist HR professionals in the initial screening process. This tool evaluates candidate suitability by calculating the semantic similarity between a job description and a candidate's CV using TF-IDF and Cosine Similarity.
 
-Features
-Input required job attributes (skills, experience, education) via sidebar
+🚀 Features
+Customizable Job Criteria: Input specific required attributes (skills, experience, education) directly via the sidebar.
 
-Upload candidate CV as a plain text file (.txt)
+CV Analysis: Support for candidate CVs in plain text (.txt) format.
 
-Compute similarity score between job description and CV using TF-IDF and cosine similarity
+Algorithmic Matching: Utilizes Scikit-learn's TfidfVectorizer to compute a match percentage.
 
-Display match percentage and interview recommendation
+Actionable Insights: Displays a similarity score and an automated interview recommendation based on the match.
 
-How to Run on Google Colab
-Open this notebook in Google Colab.
+Cloud Ready: Optimized for execution on Google Colab with integrated ngrok tunneling.
 
-Replace the ngrok auth token with your own (sign up at ngrok.com if you don’t have one).
+📂 Project Structure
+Plaintext
+hr-screening-assistant/
+├── app.py              # Main Streamlit application logic
+├── requirements.txt    # List of Python dependencies
+├── notebooks/
+│   └── colab_run.ipynb # Google Colab notebook for ngrok setup
+├── data/
+│   └── sample_cv.txt   # Example candidate CV for testing
+└── README.md           # Project documentation and setup guide
 
-Run the provided code cell which:
+🛠️ Requirements
+To run this application, you will need:
 
-Installs dependencies (streamlit, pyngrok)
-
-Writes the Streamlit app to app.py
-
-Sets up and authenticates ngrok
-
-Starts a tunnel and launches the Streamlit app
-
-Click the generated public URL to open the app.
-
-Use the sidebar to set job requirements and upload candidate CV files.
-
-Requirements
 Python 3.x
 
 Streamlit
 
-pyngrok
+Scikit-learn
 
-Google Colab environment (recommended for easy ngrok tunneling)
+pyngrok (for tunneling in Colab)
 
-Notes
-The CV upload currently supports plain text files (.txt) only.
+💻 How to Run (Google Colab)
+Open the Notebook: Load the project notebook into your Google Colab environment.
 
-The matching is based on simple TF-IDF vector similarity, intended as a basic demonstration.
+Get an Auth Token: Sign up at ngrok.com to retrieve your personal authentication token.
 
-For advanced use, consider adding PDF/DOCX parsing and more sophisticated NLP models.
+Execute the Code: Run the provided cells to:
 
-License
-MIT License © Ammar Akhter Khan
+Install necessary dependencies (streamlit, pyngrok).
 
+Generate the app.py file.
+
+Authenticate and launch the ngrok tunnel.
+
+Access the App: Click the generated public URL (e.g., http://xxxx-xxxx.ngrok.io) to open the Streamlit interface.
+
+📂 Usage
+Define Requirements: Use the sidebar to enter key job attributes like "Python", "Data Analysis", or "Project Management".
+
+Upload CV: Upload the candidate's CV as a .txt file.
+
+Review Results: The app will instantly calculate the match percentage and suggest whether to proceed with an interview.
+
+📝 Technical Notes
+[!IMPORTANT]
+Current Limitation: This version supports .txt files only. For production environments, it is recommended to integrate libraries like PyPDF2 or python-docx for broader file support.
+
+The matching engine uses a basic vector-space model:
+
+TF-IDF: Converts text into numerical vectors based on word importance.
+
+Cosine Similarity: Measures the cosine of the angle between the Job Description vector and the CV vector.
+
+⚖️ License
+Distributed under the MIT License. © 2026 Ammar Akhter Khan

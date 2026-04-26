@@ -1,70 +1,192 @@
-HR Candidate Screening Assistant
-A streamlined Streamlit web application designed to assist HR professionals in the initial screening process. This tool evaluates candidate suitability by calculating the semantic similarity between a job description and a candidate's CV using TF-IDF and Cosine Similarity.
+# HR Candidate Screening Assistant
 
-🚀 Features
-Customizable Job Criteria: Input specific required attributes (skills, experience, education) directly via the sidebar.
+### AI-Powered CV Matching for Intelligent Recruitment
 
-CV Analysis: Support for candidate CVs in plain text (.txt) format.
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python\&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-TF--IDF%20%7C%20Similarity-6A0DAD)
+![Machine Learning](https://img.shields.io/badge/ML-Text%20Matching-FF6F00)
+![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?logo=streamlit\&logoColor=white)
+![Cloud](https://img.shields.io/badge/Cloud-Colab%20%7C%20ngrok-1E90FF)
+![Status](https://img.shields.io/badge/Status-Prototype-FF8C00)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-Algorithmic Matching: Utilizes Scikit-learn's TfidfVectorizer to compute a match percentage.
+---
 
-Actionable Insights: Displays a similarity score and an automated interview recommendation based on the match.
+## Overview
 
-Cloud Ready: Optimized for execution on Google Colab with integrated ngrok tunneling.
+The **HR Candidate Screening Assistant** is a lightweight AI-powered web application designed to **streamline the initial recruitment process**.
 
-📂 Project Structure
-Plaintext
+It leverages **Natural Language Processing (NLP)** techniques to evaluate how well a candidate’s CV aligns with a given job description, enabling **faster, data-driven hiring decisions**.
+
+This tool demonstrates how **AI can augment HR workflows** by reducing manual screening effort and improving consistency in candidate evaluation.
+
+---
+
+## Key Features
+
+* **Custom Job Criteria Input**
+  Define required skills, experience, and qualifications dynamically via the sidebar
+
+* **Automated CV Analysis**
+  Upload and evaluate candidate CVs in `.txt` format
+
+* **AI-Based Matching Engine**
+  Uses TF-IDF vectorization and cosine similarity to compute relevance scores
+
+* **Quantitative Match Score**
+  Generates a percentage-based similarity score for objective comparison
+
+* **Interview Recommendation System**
+  Provides automated suggestions based on match thresholds
+
+* **Cloud Deployment Ready**
+  Easily deployable using Google Colab and ngrok for quick prototyping
+
+---
+
+## System Architecture
+
+**Input Layer**
+
+* Job description / required attributes
+* Candidate CV (text format)
+
+**Processing Layer**
+
+* Text preprocessing
+* Feature extraction using TF-IDF
+* Similarity computation using cosine similarity
+
+**Output Layer**
+
+* Match percentage score
+* Interview recommendation
+
+---
+
+## How It Works
+
+The application applies a **vector-space model** to compare textual data:
+
+### 1. TF-IDF (Term Frequency – Inverse Document Frequency)
+
+Transforms text into weighted numerical vectors based on word importance.
+
+### 2. Cosine Similarity
+
+Measures similarity between job description and CV vectors by calculating the angle between them.
+
+**Result:**
+A score between **0 and 1 (or 0%–100%)** representing candidate relevance.
+
+---
+
+## Project Structure
+
 hr-screening-assistant/
-├── app.py              # Main Streamlit application logic
-├── requirements.txt    # List of Python dependencies
+
+├── app.py              # Main Streamlit application
+├── requirements.txt    # Dependencies
 ├── notebooks/
-│   └── colab_run.ipynb # Google Colab notebook for ngrok setup
+│   └── colab_run.ipynb # Colab setup with ngrok
 ├── data/
-│   └── sample_cv.txt   # Example candidate CV for testing
-└── README.md           # Project documentation and setup guide
+│   └── sample_cv.txt   # Sample CV
+└── README.md           # Documentation
 
-🛠️ Requirements
-To run this application, you will need:
+---
 
-Python 3.x
+## Installation
 
-Streamlit
+```bash
+git clone https://github.com/your-username/hr-screening-assistant.git
+cd hr-screening-assistant
+pip install -r requirements.txt
+```
 
-Scikit-learn
+---
 
-pyngrok (for tunneling in Colab)
+## Running the Application (Local)
 
-💻 How to Run (Google Colab)
-Open the Notebook: Load the project notebook into your Google Colab environment.
+```bash
+streamlit run app.py
+```
 
-Get an Auth Token: Sign up at ngrok.com to retrieve your personal authentication token.
+---
 
-Execute the Code: Run the provided cells to:
+## Running on Google Colab
 
-Install necessary dependencies (streamlit, pyngrok).
+1. Open the provided notebook (`colab_run.ipynb`)
+2. Install dependencies (`streamlit`, `pyngrok`)
+3. Add your **ngrok auth token**
+4. Launch the app
+5. Access via generated public URL
 
-Generate the app.py file.
+---
 
-Authenticate and launch the ngrok tunnel.
+## Usage
 
-Access the App: Click the generated public URL (e.g., http://xxxx-xxxx.ngrok.io) to open the Streamlit interface.
+1. **Define Job Requirements**
+   Enter keywords such as:
 
-📂 Usage
-Define Requirements: Use the sidebar to enter key job attributes like "Python", "Data Analysis", or "Project Management".
+   * Python
+   * Data Analysis
+   * Project Management
 
-Upload CV: Upload the candidate's CV as a .txt file.
+2. **Upload Candidate CV**
+   Upload a `.txt` file
 
-Review Results: The app will instantly calculate the match percentage and suggest whether to proceed with an interview.
+3. **Review Results**
 
-📝 Technical Notes
-[!IMPORTANT]
-Current Limitation: This version supports .txt files only. For production environments, it is recommended to integrate libraries like PyPDF2 or python-docx for broader file support.
+   * Match Score (%)
+   * Interview Recommendation
 
-The matching engine uses a basic vector-space model:
+---
 
-TF-IDF: Converts text into numerical vectors based on word importance.
+## Example Output
 
-Cosine Similarity: Measures the cosine of the angle between the Job Description vector and the CV vector.
+Match Score: **82%**
+Recommendation: **Proceed to Interview**
 
-⚖️ License
-Distributed under the MIT License. © 2026 Ammar Akhter Khan
+---
+
+## Limitations
+
+* Supports **.txt files only**
+* Basic keyword-based semantic matching
+* Does not capture deep contextual meaning or soft skills
+
+---
+
+## Future Enhancements
+
+* PDF and DOCX support (PyPDF2, python-docx)
+* Transformer-based NLP models (e.g., BERT embeddings)
+* Multi-candidate ranking system
+* Bias detection and fairness evaluation
+* Integration with ATS (Applicant Tracking Systems)
+* Explainable AI for transparent decision-making
+
+---
+
+## Applications
+
+This system can be extended for:
+
+* Automated HR screening pipelines
+* Talent acquisition platforms
+* Enterprise recruitment systems
+* AI-assisted decision support tools
+
+---
+
+## Author
+
+**Ammar Akhter Khan**
+AI Researcher | Intelligent Systems | Applied Machine Learning
+
+---
+
+## License
+
+Distributed under the MIT License
+© 2026 Ammar Akhter Khan
